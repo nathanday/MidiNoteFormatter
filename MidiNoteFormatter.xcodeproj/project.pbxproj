@@ -32,6 +32,7 @@
 		D807B3AD21899CAD00FA3C06 /* MidiNoteFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidiNoteFormatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D807B3B121899CAD00FA3C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D807B3B62189A0FF00FA3C06 /* MidiNoteFormatter_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MidiNoteFormatter_Test.swift; sourceTree = "<group>"; };
+		D807B3B82189B12B00FA3C06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 			children = (
 				D807B39E218997AF00FA3C06 /* MidiNoteFormatter */,
 				D807B3AE21899CAD00FA3C06 /* MidiNoteFormatterTests */,
+				D807B3B82189B12B00FA3C06 /* README.md */,
 				D807B39D218997AF00FA3C06 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,9 +147,11 @@
 				TargetAttributes = {
 					D807B39B218997AF00FA3C06 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 					D807B3AC21899CAD00FA3C06 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -320,7 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -328,7 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -346,7 +350,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.godofcocoa.MidiNoteFormatterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -364,7 +368,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.godofcocoa.MidiNoteFormatterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
