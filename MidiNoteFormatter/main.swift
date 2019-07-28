@@ -35,3 +35,10 @@ for (i,n) in ["C3", "C♯3", "D3", "D♯3", "E3", "F3", "F♯3", "G3", "G♯3", 
 for m in 0...127 {
   assert( theMidiNoteFormatter.midiNoteValue(for:theMidiNoteFormatter.string(forMidiNote:m)).value == m )
 }
+
+theMidiNoteFormatter.accentStyle = [.flat]
+for (i,n) in ["C3", "D♭3", "D3", "E♭3", "E3", "F3", "G♭3", "G3", "A♭3", "A3", "B♭3", "B3", "C4", "D♭4", "D4", "E♭4", "E4", "F4", "G♭4", "G4", "A♭4", "A4", "B♭4", "B4"].enumerated() {
+  assert( theMidiNoteFormatter.string(forMidiNote:(48+i)) == n )
+  assert( theMidiNoteFormatter.midiNoteValue(for:n).value == 48+i )
+}
+
