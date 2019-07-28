@@ -42,3 +42,9 @@ for (i,n) in ["C3", "D♭3", "D3", "E♭3", "E3", "F3", "G♭3", "G3", "A♭3", 
   assert( theMidiNoteFormatter.midiNoteValue(for:n).value == 48+i )
 }
 
+for m in 0...127 {
+  assert( theMidiNoteFormatter.midiNoteValue(for:theMidiNoteFormatter.string(forMidiNote:m)).value == m )
+}
+
+
+
