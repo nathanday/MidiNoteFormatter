@@ -27,21 +27,35 @@ class MidiNoteFormatter: Formatter {
       case .natural: return "♮"
       }
     }
+    var ascii: String {
+      switch self {
+      case .flat: return "b"
+      case .sharp: return "#"
+      case .natural: return " "
+      }
+    }
   }
 
   /// The midi note formatter style used by the receiver.
   ///
   /// Styles are a set of values for accent styles. Valid styles are .flat, .sharp, .natural.
-  /// Used when generating string,s whether accent notes should be named as sharp, flat or both, whether natural
+  /// Used when generating string's whether accent notes should be named as sharp, flat or both, whether natural
   ///  notes should be explicitly label natural or not.
   /// The default value is [.sharp].
   public var    accentStyle : Set<AccentStyle> = [.sharp]
+
+  /// ASCII string only
+  ///
+  /// Instead of using unicode characters ♭, ♯, and ♮ use b, # and ' '
+  /// The default value is false.
+  public var    asciiStyle : Bool = false
 
   private func noteString( note aNote: Int, accentStyle aAccentStyle : AccentStyle? ) -> String {
     let    flatNoteNames = ["C", "D", "D", "E", "E", "F", "G", "G", "A", "A", "B", "B"]
     let    shartNoteNames = ["C", "C", "D", "D", "E", "F", "F", "G", "G", "A", "A", "B"]
     let    noteNames = aAccentStyle == .sharp ? shartNoteNames : flatNoteNames
-    return "\(noteNames[aNote])\(aAccentStyle?.description ?? "")"
+    let    accent = asciiStyle ? aAccentStyle?.ascii : aAccentStyle?.description
+    return "\(noteNames[aNote])\(accent ?? "")"
   }
 
   /// Returns a string containing the formatted value of the provided midi note number.
@@ -83,7 +97,7 @@ class MidiNoteFormatter: Formatter {
   /// If a string is not a valid note name, parsing will fail. Any leading or trailing space separator
   /// characters in a string are ignored. For example, the strings “ A4”, “A4 ”, and “A4” all produce
   /// the number 69.
-  /// - Parameter aString: An NSString object that is parsed to generate the returned number object.
+  /// - Parameter aString: A String object that is parsed to generate the returned number object.
   /// - Returns: An NSNumber object created by parsing string using the receiver’s format, or nil
   /// if no single number could be parsed.
   open func midiNoteValue(for aString: String ) -> (value:Int?,error:String?) {

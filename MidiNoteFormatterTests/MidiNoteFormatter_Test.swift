@@ -59,7 +59,21 @@ class MidiNoteFormatter_Test: XCTestCase {
 		XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:6+(-1+1)*12), "F♯/G♭-1", "got “F♯/G♭-1” for 6+(-1+1)*12" );
 		XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:10+(2+1)*12), "A♯/B♭2", "got “A♯/B♭2” for 1+(2+1)*12" );
 		XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:11+(3+1)*12), "B3", "got “B3” for 1+(3+1)*12" );
-    }
+
+    theMidiNoteFormatter.asciiStyle = true
+    theMidiNoteFormatter.accentStyle = [.flat];
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:0+(1+1)*12), "C1", "got “C1” for 0+(1+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:3+(5+1)*12), "Eb5", "got “Eb5” for 3+(5+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:8+(3+1)*12), "Ab3", "got “Ab3” for 8+(3+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:1+(0+1)*12), "Db0", "got “Db0” for 1+(0+1)*12" );
+
+    theMidiNoteFormatter.accentStyle = [.sharp];
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:0+(2+1)*12), "C2", "got “C2” for 0+(2+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:1+(5+1)*12), "C#5", "got “C#5” for 1+(5+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:6+(4+1)*12), "F#4", "got “F#4” for 6+(4+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:8+(2+1)*12), "G#2", "got “G#2” for 8+(2+1)*12" );
+    XCTAssertEqual( theMidiNoteFormatter.string(forMidiNote:10+(0+1)*12), "A#0", "got “A#0” for 1+(0+1)*12" );
+  }
 
 	func testFromString() {
 		let		theMidiNoteFormatter = MidiNoteFormatter();
